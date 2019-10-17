@@ -42,7 +42,9 @@ export default class AddTodo extends Vue {
   }
 
   private handleSubmit() {
-    const todo = { ...this.todo };
+    const id = this.$store.getters["todos/size"] + 1;
+
+    const todo = { id, ...this.todo };
     this.$store.commit("todos/addTodo", todo);
     this.$store.commit("todo/changeTitle", "");
     this.$store.commit("todo/changeContent", "");
