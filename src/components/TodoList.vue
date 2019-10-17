@@ -1,9 +1,14 @@
 <template>
   <ul>
-    <li v-for="todo in todos" v-bind:key="todo.id">
+    <router-link
+      tag="li"
+      :to="{ name: 'todo', params: { id: todo.id }}"
+      v-for="todo in todos"
+      v-bind:key="todo.id"
+    >
       <h2>{{ todo.title }}</h2>
       <p>{{ todo.content }}</p>
-    </li>
+    </router-link>
   </ul>
 </template>
 
